@@ -1,0 +1,117 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Player/Walk left/walk left3.png" type="Texture" id=1]
+[ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://Player/Walk left/walk left2.png" type="Texture" id=3]
+[ext_resource path="res://Player/Walk left/walk left5.png" type="Texture" id=4]
+[ext_resource path="res://Player/Walk left/walk left4.png" type="Texture" id=5]
+[ext_resource path="res://Player/Walk left/walk left1.png" type="Texture" id=6]
+[ext_resource path="res://Player/Walk right/walk right1.png" type="Texture" id=7]
+[ext_resource path="res://Player/Walk right/walk right2.png" type="Texture" id=8]
+[ext_resource path="res://Player/Walk right/walk right4.png" type="Texture" id=9]
+[ext_resource path="res://Player/Walk right/walk right5.png" type="Texture" id=10]
+[ext_resource path="res://Player/Walk right/walk right3.png" type="Texture" id=11]
+[ext_resource path="res://Player/Human.png" type="Texture" id=12]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "standL",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 11 ) ],
+"loop": true,
+"name": "standR",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ), ExtResource( 8 ), ExtResource( 11 ), ExtResource( 9 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walkR",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 1 ), ExtResource( 5 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walkL",
+"speed": 10.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 5.37371, 8.40298 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 6.43557, 9.93678 )
+
+[node name="Player2" type="KinematicBody2D" groups=[
+"Player",
+]]
+position = Vector2( 359.562, 227.171 )
+collision_layer = 4
+collision_mask = 2147483651
+script = ExtResource( 2 )
+player_index = 1
+speed = 150
+dash_speed = 0
+jump_speed = -350
+right_walljump = Vector2( 300, -350 )
+gravity = 1000
+wall_gravity = 200
+dash_time = 0.0
+friction = 0.5
+acceleration = 0.5
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+modulate = Color( 0.533333, 0.294118, 0.607843, 1 )
+frames = SubResource( 1 )
+animation = "standR"
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="JumpDelayTimer" type="Timer" parent="."]
+
+[node name="DashTimer" type="Timer" parent="."]
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="Left" type="Node2D" parent="Raycasts"]
+
+[node name="LeftTop" type="RayCast2D" parent="Raycasts/Left"]
+position = Vector2( -6.9312, -5.25196 )
+enabled = true
+cast_to = Vector2( -3, 0 )
+
+[node name="LeftBottom" type="RayCast2D" parent="Raycasts/Left"]
+position = Vector2( -6.69524, 3.71817 )
+enabled = true
+cast_to = Vector2( -3, 0 )
+
+[node name="Right" type="Node2D" parent="Raycasts"]
+
+[node name="RightTop" type="RayCast2D" parent="Raycasts/Right"]
+position = Vector2( 7.03804, -5.32127 )
+enabled = true
+cast_to = Vector2( 3, 0 )
+
+[node name="RightBottom" type="RayCast2D" parent="Raycasts/Right"]
+position = Vector2( 7.21437, 4.17413 )
+enabled = true
+cast_to = Vector2( 3, 0 )
+
+[node name="CollisionArea" type="Area2D" parent="." groups=[
+"Player",
+]]
+collision_layer = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionArea"]
+shape = SubResource( 3 )
+
+[node name="ThrowTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+[connection signal="timeout" from="JumpDelayTimer" to="." method="_on_JumpDelayTimer_timeout"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_DashTimer_timeout"]
+[connection signal="area_entered" from="CollisionArea" to="." method="_on_CollisionArea_area_entered"]
+[connection signal="body_entered" from="CollisionArea" to="." method="_on_CollisionArea_body_entered"]
+[connection signal="timeout" from="ThrowTimer" to="." method="ThrowTimeout"]

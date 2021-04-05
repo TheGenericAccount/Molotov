@@ -1,0 +1,50 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Environment/Fire/Fire ground/fire1.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Fire/Fire ground/fire2.png" type="Texture" id=2]
+[ext_resource path="res://Environment/Fire/Fire ground/fire4.png" type="Texture" id=3]
+[ext_resource path="res://Environment/Fire/Fire ground/fire3.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Fire/Fire.gd" type="Script" id=5]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "burn",
+"speed": 10.0
+} ]
+
+[node name="Fire" type="Area2D"]
+collision_layer = 524288
+collision_mask = 262150
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+damage = 7.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 2 )
+animation = "burn"
+playing = true
+
+[node name="DmgTimer" type="Timer" parent="."]
+wait_time = 0.3
+autostart = true
+
+[node name="SpreadTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+[connection signal="area_entered" from="." to="." method="_on_Fire_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_Fire_area_exited"]
+[connection signal="body_entered" from="." to="." method="_on_Fire_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Fire_body_exited"]
+[connection signal="timeout" from="DmgTimer" to="." method="damage"]
+[connection signal="timeout" from="SpreadTimer" to="." method="spread"]

@@ -1,0 +1,573 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Ground.png" type="Texture" id=2]
+[ext_resource path="res://Environment/House.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/Light/Light bottom.png" type="Texture" id=4]
+[ext_resource path="res://Environment/Light/Light middle.png" type="Texture" id=5]
+[ext_resource path="res://Environment/Light/Light top.png" type="Texture" id=6]
+[ext_resource path="res://Environment/Crow.png" type="Texture" id=7]
+[ext_resource path="res://Player/Player2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://fighting.wav" type="AudioStream" id=9]
+[ext_resource path="res://Environment/Fire/SpreadPoint.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Game.gd" type="Script" id=11]
+[ext_resource path="res://Environment/Balcony.png" type="Texture" id=12]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 11, 16, 5, 16, 5, 0, 11, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 10, 16, 6, 16, 6, 0, 10, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 6, 16, 6, 16, 6, 5, 5, 5, 5, 4, 4, 4, 4, 1, 5, 1, 5, 0, 11, 0, 11, 1, 12, 1, 12, 4, 11, 4, 11, 5, 10, 5, 10, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 16, 9, 0, 9, 0, 5, 16, 5 )
+
+[sub_resource type="ConvexPolygonShape2D" id=7]
+points = PoolVector2Array( 16, 5, 0, 5, 0, 0, 16, 0 )
+
+[sub_resource type="TileSet" id=6]
+0/name = "Ground"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Light bottom"
+1/texture = ExtResource( 4 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 16, 16 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 2 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Light middle"
+2/texture = ExtResource( 5 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 16, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape = SubResource( 3 )
+2/shape_one_way = false
+2/shape_one_way_margin = 1.0
+2/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+2/z_index = 0
+3/name = "Light top"
+3/texture = ExtResource( 6 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 16, 16 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape = SubResource( 4 )
+3/shape_one_way = false
+3/shape_one_way_margin = 1.0
+3/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+3/z_index = 0
+4/name = "Crow.png 4"
+4/texture = ExtResource( 7 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 16, 16 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape = SubResource( 5 )
+4/shape_one_way = false
+4/shape_one_way_margin = 1.0
+4/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+4/z_index = 0
+5/name = "Balcony.png 5"
+5/texture = ExtResource( 12 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 0, 0, 16, 16 )
+5/tile_mode = 0
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape = SubResource( 7 )
+5/shape_one_way = false
+5/shape_one_way_margin = 1.0
+5/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 7 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+5/z_index = 0
+
+[node name="Game" type="Node"]
+pause_mode = 2
+script = ExtResource( 11 )
+
+[node name="Players" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="Player2" parent="Players" instance=ExtResource( 8 )]
+position = Vector2( 368.163, 226.067 )
+
+[node name="Player1" parent="Players" instance=ExtResource( 1 )]
+position = Vector2( 110.998, 229.565 )
+
+[node name="Environment" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="TileMap" type="TileMap" parent="Environment"]
+tile_set = SubResource( 6 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458733, 1, 0, 131085, 4, 0, 131086, 4, 0, 131087, 4, 0, 196620, 4, 0, 196624, 4, 0, 393225, 3, 0, 393229, 4, 0, 393231, 4, 0, 393234, 3, 0, 458761, 2, 0, 458766, 4, 0, 458770, 2, 0, 458771, 4, 0, 524297, 2, 0, 524306, 2, 0, 589833, 2, 0, 589836, 4, 0, 589840, 4, 0, 589842, 2, 0, 655369, 2, 0, 655378, 2, 0, 720905, 2, 0, 720909, 4, 0, 720910, 4, 0, 720914, 2, 0, 720915, 4, 0, 786441, 2, 0, 786450, 2, 0, 786454, 5, 0, 786455, 5, 0, 851977, 2, 0, 851986, 2, 0, 917513, 1, 0, 917522, 1, 0, 1048574, 0, 0, 1048575, 0, 0, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 0, 983046, 0, 0, 983047, 0, 0, 983048, 0, 0, 983049, 0, 0, 983050, 0, 0, 983051, 0, 0, 983052, 0, 0, 983053, 0, 0, 983054, 0, 0, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 0, 983060, 0, 0, 983061, 0, 0, 983062, 0, 0, 983063, 0, 0, 983064, 0, 0, 983065, 0, 0, 983066, 0, 0, 983067, 0, 0, 983068, 0, 0, 983069, 0, 0, 983070, 0, 0, 1114110, 0, 0, 1114111, 0, 0, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 0, 1048582, 0, 0, 1048583, 0, 0, 1048584, 0, 0, 1048585, 0, 0, 1048586, 0, 0, 1048587, 0, 0, 1048588, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 0, 1048596, 0, 0, 1048597, 0, 0, 1048598, 0, 0, 1048599, 0, 0, 1048600, 0, 0, 1048601, 0, 0, 1048602, 0, 0, 1048603, 0, 0, 1048604, 0, 0, 1048605, 0, 0, 1048606, 0, 0, 1114120, 0, 0, 1114121, 0, 0 )
+
+[node name="House" parent="Environment" instance=ExtResource( 3 )]
+
+[node name="House2" parent="Environment" instance=ExtResource( 3 )]
+position = Vector2( 480.152, 133.907 )
+
+[node name="Burning" type="Node2D" parent="Environment"]
+
+[node name="SpreadPoints" type="Node2D" parent="Environment"]
+
+[node name="SpreadPoint" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+
+[node name="SpreadPoint112" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 216.128, 170.264 )
+
+[node name="SpreadPoint113" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 229.026, 172.05 )
+
+[node name="SpreadPoint66" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 168, 232 )
+
+[node name="SpreadPoint67" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 216, 232 )
+
+[node name="SpreadPoint68" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 200, 232 )
+
+[node name="SpreadPoint69" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 248, 232 )
+
+[node name="SpreadPoint70" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 232, 232 )
+
+[node name="SpreadPoint71" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 280, 232 )
+
+[node name="SpreadPoint72" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 264, 232 )
+
+[node name="SpreadPoint3" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 200 )
+
+[node name="SpreadPoint4" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 184 )
+
+[node name="SpreadPoint5" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 168 )
+
+[node name="SpreadPoint6" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 152 )
+
+[node name="SpreadPoint7" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 136 )
+
+[node name="SpreadPoint8" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 120 )
+
+[node name="SpreadPoint9" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 104 )
+
+[node name="SpreadPoint73" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 200.778, 143.607 )
+
+[node name="SpreadPoint74" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 215.321, 98.2091 )
+
+[node name="SpreadPoint75" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 231.99, 113.967 )
+
+[node name="SpreadPoint76" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 244.576, 100.635 )
+
+[node name="SpreadPoint77" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 264.955, 145.541 )
+
+[node name="SpreadPoint78" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 203.32, 43.9993 )
+
+[node name="SpreadPoint79" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 217.632, 29.6879 )
+
+[node name="SpreadPoint80" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 233.907, 30.1088 )
+
+[node name="SpreadPoint81" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 247.377, 37.6854 )
+
+[node name="SpreadPoint82" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 263.372, 45.683 )
+
+[node name="SpreadPoint10" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 152, 88 )
+
+[node name="SpreadPoint11" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 104.631 )
+
+[node name="SpreadPoint12" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 120.631 )
+
+[node name="SpreadPoint13" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 136.631 )
+
+[node name="SpreadPoint14" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 152.631 )
+
+[node name="SpreadPoint15" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 168.631 )
+
+[node name="SpreadPoint16" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 184.631 )
+
+[node name="SpreadPoint17" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 200.631 )
+
+[node name="SpreadPoint18" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 141.256, 216.631 )
+
+[node name="SpreadPoint19" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 136, 232 )
+
+[node name="SpreadPoint20" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 120, 232 )
+
+[node name="SpreadPoint21" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 104, 232 )
+
+[node name="SpreadPoint22" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 231.109 )
+
+[node name="SpreadPoint42" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 88.1145, 231.109 )
+
+[node name="SpreadPoint23" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 215.109 )
+
+[node name="SpreadPoint24" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 199.109 )
+
+[node name="SpreadPoint25" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 183.109 )
+
+[node name="SpreadPoint43" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 87.6893, 189.81 )
+
+[node name="SpreadPoint109" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 99.5361, 190.143 )
+
+[node name="SpreadPoint44" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 89.6535, 147.529 )
+
+[node name="SpreadPoint110" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 101.333, 147.362 )
+
+[node name="SpreadPoint45" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 88.8184, 99.0937 )
+
+[node name="SpreadPoint111" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 99.8309, 99.5942 )
+
+[node name="SpreadPoint26" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 167.109 )
+
+[node name="SpreadPoint27" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 151.109 )
+
+[node name="SpreadPoint28" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 135.109 )
+
+[node name="SpreadPoint29" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 119.109 )
+
+[node name="SpreadPoint30" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 103.109 )
+
+[node name="SpreadPoint31" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 87.1091 )
+
+[node name="SpreadPoint32" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 71.1091 )
+
+[node name="SpreadPoint33" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 55.1091 )
+
+[node name="SpreadPoint34" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 76.1956, 39.1091 )
+
+[node name="SpreadPoint35" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 72, 40 )
+
+[node name="SpreadPoint36" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 56, 40 )
+
+[node name="SpreadPoint37" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 40, 40 )
+
+[node name="SpreadPoint38" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 24, 40 )
+
+[node name="SpreadPoint39" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 8, 40 )
+
+[node name="SpreadPoint40" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 8, 24 )
+
+[node name="SpreadPoint41" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 8, 8 )
+
+[node name="SpreadPoint2" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 162.114, 216 )
+
+[node name="SpreadPoint46" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 344, 232 )
+
+[node name="SpreadPoint83" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 360, 232 )
+
+[node name="SpreadPoint84" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 376, 232 )
+
+[node name="SpreadPoint85" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 385.157, 232.708 )
+
+[node name="SpreadPoint87" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 400.259, 232.236 )
+
+[node name="SpreadPoint88" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 398.416, 198.869 )
+
+[node name="SpreadPoint90" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 400.62, 182.574 )
+
+[node name="SpreadPoint91" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 401.557, 165.929 )
+
+[node name="SpreadPoint92" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 400.849, 151.653 )
+
+[node name="SpreadPoint93" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 385.747, 150.827 )
+
+[node name="SpreadPoint94" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 403.916, 135.961 )
+
+[node name="SpreadPoint95" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 404.034, 120.859 )
+
+[node name="SpreadPoint96" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 404.506, 105.875 )
+
+[node name="SpreadPoint97" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 400.259, 94.1944 )
+
+[node name="SpreadPoint98" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 385.393, 94.0764 )
+
+[node name="SpreadPoint99" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 402.383, 78.1485 )
+
+[node name="SpreadPoint100" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 402.737, 62.8105 )
+
+[node name="SpreadPoint101" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 404.388, 47.3546 )
+
+[node name="SpreadPoint102" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 418.075, 40.2755 )
+
+[node name="SpreadPoint103" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 423.502, 26.3534 )
+
+[node name="SpreadPoint104" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 437.306, 25.0556 )
+
+[node name="SpreadPoint105" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 452.408, 24.5836 )
+
+[node name="SpreadPoint106" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 467.628, 23.2858 )
+
+[node name="SpreadPoint107" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 468.218, 9.95356 )
+
+[node name="SpreadPoint108" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 467.392, -5.73835 )
+
+[node name="SpreadPoint89" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 382.114, 198.727 )
+
+[node name="SpreadPoint114" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 365.626, 199.919 )
+
+[node name="SpreadPoint115" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 353.045, 201.574 )
+
+[node name="SpreadPoint86" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 399.156, 215.439 )
+
+[node name="SpreadPoint47" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 204.229 )
+
+[node name="SpreadPoint48" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 188.229 )
+
+[node name="SpreadPoint49" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 172.229 )
+
+[node name="SpreadPoint50" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 156.229 )
+
+[node name="SpreadPoint51" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 140.229 )
+
+[node name="SpreadPoint52" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 124.229 )
+
+[node name="SpreadPoint53" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 108.229 )
+
+[node name="SpreadPoint54" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 295.069, 91.8085 )
+
+[node name="SpreadPoint55" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 107.808 )
+
+[node name="SpreadPoint56" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 123.808 )
+
+[node name="SpreadPoint57" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 139.808 )
+
+[node name="SpreadPoint58" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 155.808 )
+
+[node name="SpreadPoint59" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 171.808 )
+
+[node name="SpreadPoint60" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 187.808 )
+
+[node name="SpreadPoint61" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 203.808 )
+
+[node name="SpreadPoint62" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 285.165, 219.808 )
+
+[node name="SpreadPoint63" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 311.606, 231.47 )
+
+[node name="SpreadPoint64" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 295.606, 231.47 )
+
+[node name="SpreadPoint65" parent="Environment/SpreadPoints" instance=ExtResource( 10 )]
+position = Vector2( 306.706, 220.229 )
+
+[node name="PhysicsObjects" type="Node2D" parent="."]
+pause_mode = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+pause_mode = 2
+stream = ExtResource( 9 )
+volume_db = -20.0
+autoplay = true
+
+[node name="Control" type="Control" parent="."]
+pause_mode = 1
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Label" type="Label" parent="Control/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -40.5
+margin_top = -7.0
+margin_right = 40.5
+margin_bottom = 7.0
+text = "Player 1 won"
+
+[node name="Timer" type="Timer" parent="."]
+pause_mode = 1
+wait_time = 2.0
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
